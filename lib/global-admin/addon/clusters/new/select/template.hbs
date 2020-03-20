@@ -18,7 +18,8 @@
         </div>
       </a>
       {{else}}
-      <div class="col span-6 cluster-driver-box span-height full-height" id="custom">
+      <div class="col span-6 cluster-driver-box span-height full-height" id="custom"
+        {{action "chooseProvider" "custom"}}>
         <div class="machine-driver custom-driver"></div>
         <div class="driver-content">
           <h3>{{t "clusterNew.custom.label"}}</h3>
@@ -44,7 +45,8 @@
         </div>
       </a>
       {{else}}
-      <div class="col span-6 cluster-driver-box span-height full-height selected" id="import">
+      <div class="col span-6 cluster-driver-box span-height full-height" {{action "chooseProvider" "import"}}
+        id="import">
         <div class="machine-driver import-driver"></div>
         <div class="driver-content">
           <h3>{{t "clusterNew.import.label"}}</h3>
@@ -75,14 +77,15 @@
       {{#each (get providerGroups "rkeGroup") as |provider|}}
       {{#if disabledAddCluster}}
       <a class="col span-2 cluster-driver-box small span-height full-height bg-disabled btn-disabled  {{provider.name}}"
-        href="javascript:void(0);">
+        {{action "chooseProvider" provider.name}} href="javascript:void(0);">
         <div class="machine-driver {{if provider.genericIcon "generic"}} {{provider.name}}"></div>
         <div class="driver-content">
           <p class="driver-name">{{driver-name provider.name}}</p>
         </div>
       </a>
       {{else}}
-      <div class="col span-2 cluster-driver-box small span-height full-height {{provider.name}}" id="{{provider.name}}">
+      <div class="col span-2 cluster-driver-box small span-height full-height {{provider.name}}" id="{{provider.name}}"
+        {{action "chooseProvider" provider.name}}>
         <div class="machine-driver {{if provider.genericIcon "generic"}} {{provider.name}}"></div>
         <div class="driver-content">
           <p class="driver-name">{{driver-name provider.name}}</p>
@@ -104,7 +107,8 @@
       </div>
       {{#each (get providerGroups "cloudGroup") as |provider|}}
       {{#unless provider.scriptError}}
-      <div class="col span-2 cluster-driver-box small span-height full-height {{provider.name}}" id="{{provider.name}}">
+      <div class="col span-2 cluster-driver-box small span-height full-height {{provider.name}}" id="{{provider.name}}"
+        {{action "chooseProvider" provider.name}}>
         <div class="machine-driver {{if provider.genericIcon "generic"}} {{provider.name}}"></div>
         <div class="driver-content">
           <p class="driver-name">{{driver-name provider.name}}</p>
@@ -112,7 +116,8 @@
       </div>
       {{else}}
       <div
-        class="disabled error-loading-driver col span-2 cluster-driver-box small span-height full-height {{ provider.name}}">
+        class="disabled error-loading-driver col span-2 cluster-driver-box small span-height full-height {{ provider.name}}"
+        {{action "chooseProvider" provider.name}}>
         {{#tooltip-element type="tooltip-basic" model=provider.scriptError tooltipTemplate="tooltip-static" aria-describedby="tooltip-base" tooltipFor="tooltipDriverError"}}
         <span class="icon icon-alert"></span>
         {{/tooltip-element}}
@@ -125,13 +130,11 @@
       {{/each}}
     </div>
   </div>
-  {{/if}}
-</div>
-<div class="footer-actions mt-20">
-  {{#link-to "clusters.index" classNames="btn noHover btn-dark"}}
-  {{t "generic.next"}}
-  {{/link-to}}
-  {{#link-to "clusters.index" classNames="btn noHover btn-light"}}
-  {{t "generic.cancel"}}
-  {{/link-to}}
-</div>
+  {{/if}}< </div>
+    <div class="footer-actions mt-20">
+      <button class="btn btn-dark" {{action "launchProvider"}}>{{t "generic.next"}}</button>
+
+      {{#link-to "clusters.index" classNames="btn  ml-10 btn-light"}}
+      {{t "generic.cancel"}}
+      {{/link-to}}
+    </div>
