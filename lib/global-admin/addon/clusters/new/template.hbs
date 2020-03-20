@@ -4,7 +4,11 @@
     <li class="{{if (eq router.currentRoute.localName "select") "active"}}">1.&nbsp; {{t "clustersPage.step1"}}</li>
     <li class="{{if (eq router.currentRoute.localName "launch") "active"}}">2.&nbsp;
       {{t "clustersPage.step2"}}</li>
+
+
+    {{#if step3 }}
     <li>3.&nbsp; {{t "clustersPage.step3"}}</li>
+    {{/if}}
   </ul>
   {{outlet}}
 </section>

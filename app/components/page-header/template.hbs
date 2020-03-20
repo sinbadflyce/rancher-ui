@@ -4,17 +4,9 @@
   </a>
 
   <ul class="nav-main nav-list no-inline-space">
-
-    <li class="nav-item">
-      {{#link-to
-        "global-admin.clusters.new"
-          class="nav-link"
-          disabled=(rbac-prevents resource="cluster" scope="global" permission="create")
-        }}
-      {{t "clustersPage.newCluster"}}
-      {{/link-to}}
-    </li>
-
+    {{page-header-project	
+      pageScope=pageScope	 
+    }}
     {{#each navTree as |item|}}
     {{#if item.submenu.length}}
     {{! Has a submenu }}
