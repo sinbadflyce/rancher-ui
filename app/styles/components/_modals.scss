@@ -1,8 +1,7 @@
-$modal-content-bg                    : white !default;
-$modal-content-border-color          : transparent !default;
-$modal-content-fallback-border-color : #999 !default;
-$modal-overlay                       : rgba($light-grey, 0.75) !default;
-
+$modal-content-bg: white !default;
+$modal-content-border-color: transparent !default;
+$modal-content-fallback-border-color: #999 !default;
+$modal-overlay: rgba($light-grey, 0.75) !default;
 
 .modal-overlay {
   background-color: $modal-overlay;
@@ -20,11 +19,11 @@ $modal-overlay                       : rgba($light-grey, 0.75) !default;
   &.modal-open {
     z-index: 10;
     opacity: 1;
-    transition: opacity .25s ease-in-out;
+    transition: opacity 0.25s ease-in-out;
 
     .modal-container {
       max-height: 100%;
-      transition: max-height .25s ease-in-out;
+      transition: max-height 0.25s ease-in-out;
       max-width: 75%;
       margin: 0 auto;
     }
@@ -90,7 +89,6 @@ $modal-overlay                       : rgba($light-grey, 0.75) !default;
       margin: 0;
 
       // color: $light-grey;
-
     }
 
     .close {
@@ -135,5 +133,10 @@ $modal-overlay                       : rgba($light-grey, 0.75) !default;
         background: transparent;
       }
     }
+  }
+}
+#pop-up {
+  .modal-header {
+    background: #f1f1f1;
   }
 }

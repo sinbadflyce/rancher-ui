@@ -49,13 +49,16 @@
       </a>
     </li> --}}
     <li class="item clip selected  active">
-      {{#link-to
+      <a href="#" class="nav-link" {{action "showNewCluster"}} disabled='(rbac-prevents resource=" cluster"
+        scope="global" permission="create" )'>
+        {{t "clustersPage.newCluster"}}</a>
+      {{!--  {{#link-to
           "global-admin.clusters.new"
             class="nav-link"
             disabled=(rbac-prevents resource="cluster" scope="global" permission="create")
           }}
       {{t "clustersPage.newCluster"}}
-      {{/link-to}}
+      {{/link-to}} --}}
     </li>
   </ul>
 </div>
