@@ -22,7 +22,7 @@
 				</div>
 				
 				{{else if (eq tabSelect 2)}}
-				<NewLaunchCluster @provider={{provider}} @close={{action "doCancel"}}
+				<NewLaunchCluster @provider={{provider}} @close={{action "doCancel"}} @done={{action "done"}}
 					@clusterTemplateRevisions={{model.clusterTemplateRevisions}} @clusterTemplates={{model.clusterTemplates}}
 					@model={{originalModel}} />
 				{{/if}}

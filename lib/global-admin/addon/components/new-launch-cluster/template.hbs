@@ -5,6 +5,6 @@
 	</div>
 {{else}}
 <CruCluster @applyClusterTemplate={{not (is-empty clusterTemplateRevision)}} @model={{record}} @provider={{provider}}
-	@mode="new" @close={{action "close"}} @clusterDriverError={{action "clusterDriverErrorAndTransition"}}
+	@mode="new" @close={{action "close"}}   @done={{action "done"}} @clusterDriverError={{action "clusterDriverErrorAndTransition"}}
 	@clusterTemplateRevisionId={{mut clusterTemplateRevision}} />
 {{/if}}
