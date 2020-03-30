@@ -1,0 +1,31 @@
+<div id="popup">
+	<section class="cluster-launch">
+		<h1>{{t "clustersPage.newCluster"}}</h1>
+		<ul class="breadcrumb">
+			<li class="{{if  (eq tabSelect 1) "active"}}">1.&nbsp; {{t "clustersPage.step1"}}</li>
+			<li class="{{if  (eq tabSelect 2) "active"}}">2.&nbsp;
+				{{t "clustersPage.step2"}}</li>
+
+			<li class="{{if  (eq tabSelect 3) "active"}}">3.&nbsp; {{t "clustersPage.step3"}}</li>
+		</ul>
+		{{#if loading}}	
+			<div class="text-center m-40">
+				<i class="icon icon-spinner icon-spin"/>
+				{{t "generic.loading"}}
+			</div>
+		{{else}}
+				{{#if (eq tabSelect 1)}}
+				{{new-cluster-select model=model}}
+				<div class="footer-actions mt-20">
+					<button class="btn btn-dark" {{action "doNext"}}>{{t "generic.next"}}</button>
+					<button class="btn  ml-10 btn-light" {{action "doCancel"}}>{{t "generic.cancel"}}</button>
+				</div>
+				
+				{{else if (eq tabSelect 2)}}
+				<NewLaunchCluster @provider={{provider}} @close={{action "doCancel"}} @done={{action "done"}}
+					@clusterTemplateRevisions={{model.clusterTemplateRevisions}} @clusterTemplates={{model.clusterTemplates}}
+					@model={{originalModel}} />
+				{{/if}}
+		{{/if}}
+	</section>
+</div>

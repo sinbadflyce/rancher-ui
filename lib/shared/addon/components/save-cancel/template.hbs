@@ -1,16 +1,17 @@
 {{#if saving}}
-  <button class="btn btn-disabled {{savingColor}}" {{action "doNothing"}}>
-    <i class="icon icon-spinner icon-spin"></i>
-    {{t savingLabel}}
-  </button>
+<button class="btn btn-disabled {{savingColor}}" {{action "doNothing"}}>
+  <i class="icon icon-spinner icon-spin"></i>
+  {{t savingLabel}}
+</button>
 {{else}}
-  <button type="submit" {{action "save"}} disabled={{saveDisabled}} class="btn {{if saved savedColor saveColor}}">
-    {{t btnLabel}}
-  </button>
+<button type="submit" {{action "save"}} disabled={{saveDisabled}}
+  class="btn btn-dark {{if saved savedColor saveColor}}">
+  {{t btnLabel}}
+</button>
 {{/if}}
 {{yield}}
 {{#unless cancelDisabled}}
-  <button {{action "cancel"}} class="btn {{cancelColor}}">
-    {{t cancelLabel}}
-  </button>
+<button {{action "cancel"}} class="btn btn-light">
+  {{t cancelLabel}}
+</button>
 {{/unless}}
